@@ -4,5 +4,5 @@ get '/' do
 end
 
 get '/messages' do
-  'Message List here'
+  erb :'messages/index'
 end
