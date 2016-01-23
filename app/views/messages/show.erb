@@ -1,12 +1,29 @@
-<h1><%= @message.title %></h1>
-
 <p>
  Author: <%= @message.author %>
 </p>
-
 <p>
  <%= @message.content  %>
 </p>
+<p>
+ <%= @message.url %>
+</p>
+<p>
+  Created at: <%= @message.created_at %>
+</p>
+<p>
+ Other messages from this author:
+ <% @messages.each do |message| %>
+   <div class="message">
+     <h3><a href="/messages/<%= message.id %>"><%= message.author %></a></h3>
+     <p>
+       <%= message.content %>
+     </p>
+     <p>
+       <a href="<%= message.url %>"><%= message.url %></a>
+     </p>
+   </div>
+ <% end %>
+ </p>
 
 <hr/>
 <a href="/messages">Back to All Messages</a>
